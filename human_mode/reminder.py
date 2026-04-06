@@ -2,7 +2,7 @@ import time
 import json
 import os
 from human_mode.utils import is_user_active
-
+from plyer import notification
 FILE = "reminders.json"
 STATS_FILE = "stats.json"
 
@@ -68,10 +68,17 @@ def run_reminders():
             next_time = last_trigger[i] + (r["interval"] * 60)
 
             if current_time >= next_time:
-
                 if active:
                     print(f"\n💡 You've been working continuously. {r['message']}?")
+                    
+                    notification.notify(
+                        title="🧠 Human Mode",
+                        message=r['message'],
+                        timeout=5
+                    )
+
                     stats["total_reminders"] += 1
+                
                 else:
                     # print(f"\n😴 Skipping (idle): {r['message']}")
                     last_trigger[i] = current_time
@@ -88,6 +95,12 @@ def run_reminders():
         # burnout detection
         if active and (current_time - focus_start > 7200):
             print("\n⚠️ You've been working for 2+ hours. Take a break!")
+
+            notification.notify(
+                title="⚠️ Burnout Alert",
+                message="You've been working for 2+ hours. Take a break!",
+                timeout=5
+            )            
             focus_start = current_time
 
         time.sleep(5)
@@ -111,3 +124,4 @@ def show_report():
     print(f"Total reminders: {total}")
     print(f"Active time: {round(active_time, 2)} minutes")
     print(f"Burnout risk: {burnout}")
+    
