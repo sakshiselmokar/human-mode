@@ -8,7 +8,7 @@ Most reminder apps just spam notifications. This one adapts to your **behavior a
 
 ## 🎬 Demo Video
 
-[![Watch the demo](https://youtu.be/zNaKq_OiQ2g?feature=shared)]
+[Watch the demo](https://youtu.be/zNaKq_OiQ2g?feature=shared)
 
 Click to watch **human-mode in action**!
 
