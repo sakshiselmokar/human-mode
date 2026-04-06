@@ -1,7 +1,3 @@
-Perfect! Then we can remove “Future: Desktop notifications” from the README and instead **highlight it as a current feature**. Here’s the updated version with that tweak:
-
----
-
 # 🧠 human-mode
 
 A **smart CLI tool** that reminds you to *actually be human*.
